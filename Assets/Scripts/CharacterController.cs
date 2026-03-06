@@ -69,6 +69,23 @@ public class CharacterController : MonoBehaviour
         if (anim != null)
         {
             float speed = Mathf.Abs(moveInput.y);
+            anim.SetFloat("Speed_f", speed);
+            anim.SetBool("Crouch_b", isCrouching);
+
+            if (isUsingHandgun)
+            {
+                anim.SetInteger("WeaponType_int", 1);
+
+            }
+
+            else
+            {
+
+                anim.SetInteger("WeaponType_int", 0);
+                handgun.SetActive(false);
+            
+            }
+
         }
     }
 }
